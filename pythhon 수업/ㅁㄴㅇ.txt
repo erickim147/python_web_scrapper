@@ -1,0 +1,12 @@
+#1.7 Keyworded Arguments (05:52)
+
+지금까지 사용한것은 positional Argument라고 하며
+인자인데 위치에 의존적인 인자라는 의미이다.
+
+가끔씩 keyword argument를 사용할 때가 있다
+keyword argument는 인자인데 위치에 따라 정해지는 것이 아닌 argument의 
+이름으로 쌍을 이뤄주는 것이다.
+
+positional argument = 위치에 의존적인 인자
+keyword argument = argument의 이름으로 쌍을 이뤄주는 인자
+

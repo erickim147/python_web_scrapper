@@ -1,0 +1,4 @@
+Mutable = 값을 변경 할 수 있는 것.
+Immutable = 값을 변경 할 수 없는 것.
+
+list = mutable sequence이다.

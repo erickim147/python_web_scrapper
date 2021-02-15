@@ -1,0 +1,29 @@
+tuple sequence = 변경불가한 Immutable 이다.
+list와는 다르게 common operations만 사용 가능하다 (list는 mutable sequence operator도 사용 가능)
+아무도 변경할 수 없는 시퀀스를 만들 때 사용할 수 있다
+
+사용은 ist = [] / tople = ()
+
+dictionary = 
+
+nico = {
+    "name": "Nico",
+    "age": 29,
+    "korean": True,
+    "fav_food": ["Kimchi", "Sashimi"]
+}
+
+print(nico)
+
+nico = {
+    "name": "Nico",
+    "age": 29,
+    "korean": True,
+    "fav_food": ["Kimchi", "Sashimi"]
+}
+
+print(nico)
+nico["hansome"] = True
+print(nico)
+
+nico dictionary에 추가 할 수도 있다.
