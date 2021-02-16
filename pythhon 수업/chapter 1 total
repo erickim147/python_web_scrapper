@@ -1,0 +1,337 @@
+1.0 Data Types of Python
+
+a_string = "like this"   = 글자
+a_number = 3    = 정수
+a_float = 3.12   = 소수
+a_boolean = False    =참or거짓
+a_none = None   = 없음을 의미함 javascript-> null or undifaind 이지만 null에 가깝다
+
+print(type(a_float))
+
+
+변수 이름을 쓸때는 띄어쓰기 대신 언더바 _ 를 사용한다
+이것 python 사용자와의 약속이다
+javascrip의 경우는 camel case (superLongVariable)로 사용하며
+python은 snake cake (super_long_variable)로 사용한다.
+
+////////////////////////////////////////////////////////////////////////////
+
+1.1 Lists in Python
+
+Mutable = 값을 변경 할 수 있는 것.
+Immutable = 값을 변경 할 수 없는 것.
+
+list = mutable sequence이다.
+
+////////////////////////////////////////////////////////////////////////////
+
+1.2 Tuples and Dicts
+
+tuple sequence = 변경불가한 Immutable 이다.
+list와는 다르게 common operations만 사용 가능하다 (list는 mutable sequence operator도 사용 가능)
+아무도 변경할 수 없는 시퀀스를 만들 때 사용할 수 있다
+
+사용은 ist = [] / tople = ()
+
+dictionary = 
+
+nico = {
+    "name": "Nico",
+    "age": 29,
+    "korean": True,
+    "fav_food": ["Kimchi", "Sashimi"]
+}
+
+print(nico)
+
+nico = {
+    "name": "Nico",
+    "age": 29,
+    "korean": True,
+    "fav_food": ["Kimchi", "Sashimi"]
+}
+
+print(nico)
+nico["hansome"] = True
+print(nico)
+
+nico dictionary에 추가 할 수도 있다.
+
+////////////////////////////////////////////////////////////////////////////
+
+1.3 Built in Functions 
+
+python이 기본적으로 가지고 있는 funtion들
+
+////////////////////////////////////////////////////////////////////////////
+
+#1.4 Creating a Your First Python Function (04:21)
+
+function 만드는 법
+
+------------------------------------------------------------------------------------
+def say_hello():
+    print("hello")
+
+say_hello()
+
+------------------------------------------------------------------------------------
+    
+
+def = definition or define의 약자
+def로 function을 만든다
+
+구분은 tap키로 들여쓰기를 하여 function을 정의한다
+js의 경우는 {}로로 하지만 python은 들여쓰기로 함
+
+function 사용할 때는 정의해둔 finction을 쓰면 됨
+
+function 뒤에 ()괄호를 추가하면 무조건 functin 실행이라는 뜻
+
+////////////////////////////////////////////////////////////////////////////
+
+#1.5 Function Arguments (05:45)
+
+
+def say_hello(who):
+    print("hello", who)
+    
+say_hello(True)
+
+
+function에 인자를 넣어주고 인자 안에 값을 넣어 정의된 function 인자값을 넣어줄수있다
+인자에는 유효한 타입이기만 한다면 원하는 뭐든 넣을 수 있다.
+인자를 만든 후 인자를 정의해주지 않으면 타입 에러가 남
+
+에러 메시지
+Traceback (most recent call last):
+  File "/mnt/c/Users/김형민/Documents/python_study/make_web_scrapper_nomadcoder/practice.py", line 4, in <module>
+    say_hello()
+TypeError: say_hello() takes exactly 1 argument (0 given)
+
+
+def plus(a, b):
+    print(a + b)
+
+def minus(a, b=0):
+    print(a - b)
+
+plus(2, 5)
+minus(2)
+
+minus인자 b에 값을 주지 않을 때 에러가 난다 
+이럴때는 function 인자 b에 default값을 주게되면 에러가 안난다
+def minus(a, b=0)으로 b인자에 default 값 0을 주면 b값은 0이다.
+
+print function은 유효한 타입을 넣는다면 무한대로 넣을 수 있고 그대로 console에 출력된다.
+
+////////////////////////////////////////////////////////////////////////////
+
+#1.6 Returns (05:43)
+
+function을 정의하고 그 결과를 변수에 저장하길 원할 때가 있다
+--------------------------------------------------------------------------
+def p_plus(a, b):
+    print(a + b)
+
+def r_plus(a, b):
+    return a + b
+
+
+p_result = p_plus(2, 3)
+r_result = r_plus(2, 3)
+
+print(p_result, r_result)
+--------------------------------------------------------------------------
+출력값 : None 5
+--------------------------------------------------------------------------
+
+return 키워드를 사용하면 function을 호출할 때 function이 return된 값으로 바뀌게 된다(치환된다)
+p_result의 경우는 return값이 없기 때문에 출력해보면 none으로 표기된다
+
+return은 값을 return한다!
+return은 function을 종료한다!
+
+--------------------------------------------------------------------------
+def r_plus(a, b):
+    return a + b
+    print("ddsfkljsadf", True)
+
+r_result = r_plus(2, 3)
+
+print(r_result)
+--------------------------------------------------------------------------
+result = 5
+--------------------------------------------------------------------------
+
+function을 호출하여 function이 실행되고 return에 의해 값이 반환되면
+function을 종료하여 return 다음 시퀀스는 실행되지 않는다.
+vsc에서 보면 return 다음 시퀀스는 음영처리 되어있다.
+
+
+★function 하나 당 한개의 return값만 반환 할 수 있다
+return값은 function 당 무조건 1개만 사용된다
+이유는? 값이 return되면 function을 종료하기 때문에
+
+이제부터는 print 함수를 그냥 막 쓰지말고 결과를 출력할 때 확인 할 때만 사용해라
+
+////////////////////////////////////////////////////////////////////////////
+
+1.7 Keyworded Arguments
+
+가끔 Keyworded Arguments를 가진다
+이 의미는 인자인데 Arguments의 이름으로 쌍을 지어주는 것
+
+---------------------------------------------------------------------------
+def say_hello(name, age):
+    return f"Hello {name} you are {age} years old"
+
+hello = say_hello("nico", "12")
+print(hello)
+
+or
+
+hello = say_hello(age="12", name="nico")
+print(hello)
+---------------------------------------------------------------------------
+resert = Hello nico you are 12 years old 
+
+이렇게 Keyworded로 값을 넣을 수 있다
+return값에 인자 값을 넣으려면 f를 앞에 붙여준다 format이라고 하며
+return값 앞에 써주고 인자 이름을 {}로 감싸준다.
+
+인자 값 지정 시 순서에 상관없이 인자이름과 값을 써줘도 된다
+이건 인자가 많을 때 이렇게 사용 하는것이 유용하다.
+아니면 인자 순서대로 값을 써넣어야 한다.
+
+////////////////////////////////////////////////////////////////////////////
+
+1.9 Conditionals part One
+
+-------------------------------------------------------------------------------
+def plus(a, b):
+    if CONDITION: 
+        error 
+    else:
+        return a + b
+-------------------------------------------------------------------------------
+
+if else 문은 if에 조건은 무조건 CONDITION에 써주어야 한다
+조건 뒤에는 항상 : 을 추가해야 한다
+
+조건문에서 return은 항상 조건문 안쪽에 위치해야 한다 아주 중요함
+
+
+-------------------------------------------------------------------------------
+def plus(a, b):
+    if type(b) is int or type(b) is float: 
+        return a + b
+    else:
+        return None
+
+print(plus(12, 1.2))
+-------------------------------------------------------------------------------
+resert = 13.2
+
+////////////////////////////////////////////////////////////////////////////
+
+1.10 if else and or 
+
+Boolean Operrations = and, or, not
+
+------------------------------------------------------------------------------
+def age_check(age):
+    print(f"you are {age}")
+    if age < 18:
+        print("you can't drink")
+    elif age == 18 or age == 19:
+        print("you are new to this!")
+    elif age > 20 and age < 25:
+        print("you are still kind of young")
+    else:
+        print("enjoy your drink")
+
+age_check(19)
+------------------------------------------------------------------------------
+
+if 이후 elif를 추가하여 조건을 추가 할 수있다
+조건문은 and, or, not와 비교연산자 ==, <, > 등을 추가하여 비교할 수 있다.
+and = 두, 혹은 원하는 값이 모두 참일 경우 실행
+or = 두, 혹은 원하는 값 중 하나만 참일 경우 실행
+not = 값을 반대로 출력함 ex) True -> false
+
+if, elif 문이 모두 false 일 경우 else 문이 실행 된다.
+
+////////////////////////////////////////////////////////////////////////////
+
+#1.11 for in (06:02)
+
+for는 매우 유용하게 쓰이며 뭔가를 순차적으로 작업할 때 많이 쓴다
+
+tople 값을 출력할 때 각각 분리되어 출력되게 만들때,
+즉 tople값을 순서댈 개별 출력 할 때 사용됨
+
+------------------------------------------------------------------------------
+days = ("Mon", "Tue", "Wed", "Thu", "Fri")
+
+for day in days: 
+    print(day)
+------------------------------------------------------------------------------
+resert = 
+Mon
+Tue
+Wed
+Thu
+Fri
+------------------------------------------------------------------------------
+여기서 x는 변수 이름으로 아무거나 지어도 되며
+tople 값 순서대로 "mon"이면 "mon"의 값을 가지며 차례대로 값이 변경된다.
+
+for loop가 실행되고 중간에 멈춰야 할 때 
+------------------------------------------------------------------------------
+days = ("Mon", "Tue", "Wed", "Thu", "Fri")
+
+for day in days:
+    if day is "Wed":
+        break
+    else:
+        print(day)
+------------------------------------------------------------------------------
+resert = 
+Mon
+Tue
+------------------------------------------------------------------------------
+
+loop를 멈추고 싶을 때 if else문을 사용하여 멈추길 원하는 값을 주고
+break를 걸어 원하는 값만 출력하고 loop를 멈출 수 있다.
+
+for 문은 string, tolpe, list에서 사용 할 수 있고,
+배열을 차례대로 실행 시킨다.
+
+
+//////////////////////////////////////////////////////////////////////////////
+#1.12 Modules (09:15)
+
+python에서는 module이라는게 내장되어 있다. 기능의 집합 같은 것임
+import만 해주면 기본 제공되는 수학 함수를 사용할 수 있다.
+------------------------------------------------------------------------------
+import math
+
+print(math.ceil(1.2))
+------------------------------------------------------------------------------
+import할 때는 그냥 import 쓰고 module이름 써주면 됨
+import 할 때 중요한 것은 math를 import하면 안쓰는 기능까지 전부 가져오게되어
+원하는 기능만 import 해주는것이 좋다.
+
+------------------------------------------------------------------------------
+from math import ceil, fsum
+
+print(ceil(1.2))
+print(fsum([1, 2, 3, 4, 5, 6, 7]))
+------------------------------------------------------------------------------
+from math import fsum as sexy_sum
+
+print(sexy_sum([1, 2, 3, 4, 5, 6, 7]))
+------------------------------------------------------------------------------
+import module의 이름을 변경 할 수도 있다.
+다른 파일에서 정의한 함수를 import해서 사용 할 수 있다. (파일명만 써주고 확장자는 안써줘도 됨)
